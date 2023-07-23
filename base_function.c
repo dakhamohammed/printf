@@ -37,7 +37,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 	return (ptr);
 }
 
-**
+/**
  * print_binary - function prints unsigned binary number.
  * @ap: the argument pointer.
  * @params: the parameters struct definition.
@@ -55,5 +55,5 @@ int print_binary(va_list ap, params_t *params)
 	params->unsign = 1;
 	return (c += print_number(str, params));
 
-} 
+}
 
