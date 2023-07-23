@@ -34,22 +34,24 @@ int print_STRING(va_list ap, params_t *params)
 	return (charCount);
 }
 
-**
- * print_binary - function prints unsigned binary number.
- * @ap: the argument pointer.
+/**
+ * print_address - prints address
+ * @ap: argument pointer
  * @params: the parameters struct definition.
  *
- * Return: bytes printed.
+ * Return: bytes printed
  */
-int print_binary(va_list ap, params_t *params)
+int print_address(va_list ap, params_t *params)
 {
-	unsigned int n = va_arg(ap, unsigned int);
-	char *str = convert(n, 2, CONVERT_UNSIGNED, params);
-	int c = 0;
+	unsigned long int address = va_arg(ap, unsigned long int);
+	char *str;
 
-	if (params->hashtag_flag && n)
-		*--str = '0';
-	params->unsign = 1;
-	return (c += print_number(str, params));
+	if (!address)
+		return (_puts("(nil)"));
 
+	str = convert(address, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
+	*--str = 'x';
+	*--str = '0';
+	return (print_number(str, params));
 }
+
