@@ -1,49 +1,79 @@
 #include "main.h"
 
 /**
- * print_character - function that prints character.
+ * print_char - function that prints character.
  * @ap: argument pointer.
+ * @params: the parameters struct definition.
  *
  * Return: character to be printed.
  */
-int print_character(va_list ap)
+int print_character(va_list ap, params_t *params)
 {
-	unsigned int charCount = 0, ch = va_arg(ap, int);
+	char pad_char = ' ';
+	unsigned int pad = 1, charCount = 0, ch = va_arg(ap, int);
 
-	charCount += _putchar(ch);
-
+	if (params->minus_flag)
+		charCount += _putchar(ch);
+	while (pad++ < params->width)
+		charCount += _putchar(pad_char);
+	if (!params->minus_flag)
+		charCount += _putchar(ch);
 	return (charCount);
 }
 
 /**
  * print_string - function that prints string.
  * @ap: argument pointer.
+ * @params: the parameters struct definition.
  *
  * Return: string of character to be printed.
  */
-int print_string(va_list ap)
+int print_string(va_list ap, params_t *params)
 {
-	char *str = va_arg(ap, char *);
-	unsigned int charCount = 0;
+	char *str = va_arg(ap, char *), pad_char = ' ';
+	unsigned int pad = 0, charCount = 0, i = 0, j;
 
+	(void)params;
 	switch ((int)(!str))
 		case 1:
 			str = NULL_STRING;
 
-	charCount += _puts(str);
+	j = pad = _strlen(str);
+	if (params->precision < pad)
+		j = pad = params->precision;
 
+	if (params->minus_flag)
+	{
+		if (params->precision != UINT_MAX)
+			for (i = 0; i < pad; i++)
+				charCount += _putchar(*str++);
+		else
+			charCount += _puts(str);
+	}
+	while (j++ < params->width)
+		charCount += _putchar(pad_char);
+	if (!params->minus_flag)
+	{
+		if (params->precision != UINT_MAX)
+			for (i = 0; i < pad; i++)
+				charCount += _putchar(*str++);
+		else
+			charCount += _puts(str);
+	}
 	return (charCount);
 }
 
 /**
  * print_percent - function that prints % character.
  * @ap: argument pointer.
+ * @params: the parameters struct definition.
  *
  * Return: % character.
  */
-int print_percent(va_list ap)
+int print_percent(va_list ap, params_t *params)
 {
 	(void)ap;
+	(void)params;
 	return (_putchar('%'));
 }
 
