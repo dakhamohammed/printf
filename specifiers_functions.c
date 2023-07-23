@@ -47,3 +47,23 @@ int print_percent(va_list ap)
 	return (_putchar('%'));
 }
 
+/**
+ * print_int - function that prints integer
+ * @ap: argument pointer
+ * @params: the parameters struct definition.
+ *
+ * Return: number chars printed.
+ */
+int print_int(va_list ap, params_t *params)
+{
+	long integer;
+
+	if (params->l_modifier)
+		integer = va_arg(ap, long);
+	else if (params->h_modifier)
+		integer = (short int)va_arg(ap, int);
+	else
+		integer = (int)va_arg(ap, int);
+	return (print_number(convert(integer, 10, 0, params), params));
+}
+
