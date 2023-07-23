@@ -25,9 +25,9 @@ int _puts(char *str)
 int _putchar(int c)
 {
 	static int i;
-	static char buf[1024];
+	static char buf[LOCAL_BUFFER];
 
-	if (c == -1 || i >= 1024)
+	if (c == -1 || i >= LOCAL_BUFFER)
 	{
 		write(1, buf, i);
 		i = 0;

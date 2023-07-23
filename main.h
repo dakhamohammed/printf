@@ -9,6 +9,8 @@
 
 #define NULL_STRING "(null)"
 
+#define LOCAL_BUFFER 1024
+
 #define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 #define CONVERT_LOWERCASE	1
