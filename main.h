@@ -73,9 +73,13 @@ int print_character(va_list ap, params_t *params);
 int print_string(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
 int print_int(va_list ap, params_t *params);
+int print_unsigned(va_list ap, params_t *params);
 
 /* base_function.c */
 int print_binary(va_list ap, params_t *params);
+int print_octal(va_list ap, params_t *params);
+int print_hex(va_list ap, params_t *params);
+int print_HEX(va_list ap, params_t *params);
 char *convert(long int num, int base, int flags, params_t *params);
 
 /* specifiers.c */
