@@ -35,11 +35,11 @@ int print_STRING(va_list ap, params_t *params)
 }
 
 /**
- * print_address - prints address
- * @ap: argument pointer
+ * print_address - prints address.
+ * @ap: argument pointer.
  * @params: the parameters struct definition.
  *
- * Return: bytes printed
+ * Return: bytes printed.
  */
 int print_address(va_list ap, params_t *params)
 {
