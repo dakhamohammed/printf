@@ -77,6 +77,9 @@ int print_percent(va_list ap, params_t *params);
 int print_int(va_list ap, params_t *params);
 int print_unsigned(va_list ap, params_t *params);
 
+/* more_specifiers_functions.c */
+int print_STRING(va_list ap, params_t *params);
+
 /* base_function.c */
 int print_binary(va_list ap, params_t *params);
 int print_octal(va_list ap, params_t *params);
