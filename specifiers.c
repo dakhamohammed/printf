@@ -14,6 +14,7 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"%", print_percent},
 		{"d", print_int},
 		{"i", print_int},
+		{"b", print_binary},
 		{NULL, NULL}
 	};
 
