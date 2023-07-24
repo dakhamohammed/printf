@@ -20,8 +20,8 @@ void init_params(params_t *params, va_list ap)
 	params->width = 0;
 	params->precision = UINT_MAX;
 
-        params->h_modifier = 0;
-        params->l_modifier = 0;
+	params->h_modifier = 0;
+	params->l_modifier = 0;
 	(void)ap;
 }
 
