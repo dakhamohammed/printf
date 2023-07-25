@@ -56,7 +56,7 @@ int print_address(va_list ap, params_t *params)
 }
 
 /**
- * print_rev - prints string in reverse.
+ * print_reverse - prints string in reverse.
  * @ap: string
  * @params: the parameters struct definition.
  *
