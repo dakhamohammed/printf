@@ -21,6 +21,7 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"X", print_HEX},
 		{"S", print_STRING},
 		{"p", print_address},
+		{"r", print_reverse},
 		{NULL, NULL}
 	};
 
